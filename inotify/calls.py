@@ -40,6 +40,8 @@ inotify_init = _LIB.inotify_init
 inotify_init.argtypes = []
 inotify_init.restype = _check_nonnegative
 
+inotify_init1 = _LIB.inotify_init1
+
 inotify_add_watch = _LIB.inotify_add_watch
 inotify_add_watch.argtypes = [
     ctypes.c_int, 
