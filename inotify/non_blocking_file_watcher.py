@@ -28,7 +28,7 @@ class NonBlockingFileWatcher:
     """
     def __init__(self, filePath, mask=inotify.constants.IN_CLOSE_WRITE) -> None:
         self.__inotify_fd = inotify.calls.inotify_init1(inotify.constants.IN_NONBLOCK)
-        self.__wd = inotify.calls.inotify_add_watch(self.__inotify_fd, filePath.encode('utf8'), mask)
+        inotify.calls.inotify_add_watch(self.__inotify_fd, filePath.encode('utf8'), mask)
         pass
 
     def __del__(self):
